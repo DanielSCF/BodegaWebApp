@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import { Outlet } from "react-router-dom";
 
 export default function ClientsPage() {
   return (
-    <div className="sample-text">ClientsPage</div>
-  )
+    <>
+      <h1>Clientes</h1>
+      <Outlet />
+    </>
+  );
 }
