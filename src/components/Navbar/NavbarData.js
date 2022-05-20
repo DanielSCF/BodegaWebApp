@@ -2,6 +2,8 @@ import React from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import * as BsIcons from 'react-icons/bs'
+import * as VscIcons from 'react-icons/vsc'
 
 export const NavbarData = [
   {
@@ -19,7 +21,7 @@ export const NavbarData = [
   {
     title: 'Proveedores',
     path: '/proveedores',
-    icon: <FaIcons.FaCartPlus />,
+    icon: <AiIcons.AiFillContacts />,
     cName: 'nav-text'
   },
   {
@@ -31,19 +33,19 @@ export const NavbarData = [
   {
     title: 'Clientes',
     path: '/clientes',
-    icon: <IoIcons.IoMdHelpCircle />,
+    icon: <BsIcons.BsPersonBoundingBox />,
     cName: 'nav-text'
   },
   {
     title: 'Trabajador',
     path: '/trabajadores',
-    icon: <FaIcons.FaEnvelopeOpenText />,
+    icon: <VscIcons.VscPerson />,
     cName: 'nav-text'
   },
   {
     title: 'Tipos de acceso',
     path: '/tipoacceso',
-    icon: <FaIcons.FaEnvelopeOpenText />,
+    icon: <AiIcons.AiOutlineLock />,
     cName: 'nav-text'
   },
   {
