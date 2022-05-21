@@ -4,28 +4,25 @@ import axios from "axios";
 
 export default function ClientsRegister() {
   const [formData, setFormData] = useState({
-    dni: "",
     nombre: "",
     apellidos: "",
-    direccion: "",
+    dni: "",
     telefono: "",
+    direccion: "",
   });
 
   console.log(formData);
 
-  useEffect(() => {
+  function saveData() {
     axios
       .post("http://localhost:8070/cliente", {
-        nombre:"Alex",
-        apellidos: "Arana",
-        dni: "112233",
-        telefono: "111222333",
-        direccion: "Av Los pinos"
-        
+        ...formData   
       })
       .then(({ data }) => console.log(data))
       .catch(({ error }) => console.log(error));
-  }, []);
+
+    handleClick()
+  }
 
   function handleChange(event) {
     setFormData((prevFormData) => {
@@ -113,7 +110,7 @@ export default function ClientsRegister() {
         </div>
 
         <div className="button-container">
-          <button className="btn btn-success new">
+          <button className="btn btn-success new" onClick={saveData}>
             Registrar
           </button>
         </div>
