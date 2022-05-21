@@ -47,7 +47,7 @@ export default function ClientsTable() {
         <tbody>
           {clientes.map(cliente => {
             return (
-              <tr>
+              <tr key={cliente.clienteID}>
                 <td>{cliente.clienteID}</td>
                 <td>{cliente.nombre}</td>
                 <td>{cliente.apellidos}</td>

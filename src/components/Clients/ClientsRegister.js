@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function ClientsRegister() {
   const [formData, setFormData] = useState({
-    clienteid: "",
     dni: "",
     nombre: "",
     apellidos: "",
     direccion: "",
     telefono: "",
   });
+
+  console.log(formData);
+
+  useEffect(() => {
+    axios
+      .post("http://localhost:8070/cliente", {
+        nombre:"Alex",
+        apellidos: "Arana",
+        dni: "112233",
+        telefono: "111222333",
+        direccion: "Av Los pinos"
+        
+      })
+      .then(({ data }) => console.log(data))
+      .catch(({ error }) => console.log(error));
+  }, []);
 
   function handleChange(event) {
     setFormData((prevFormData) => {
@@ -41,7 +57,7 @@ export default function ClientsRegister() {
       </div>
 
       <form>
-        <div class="mb-3">
+        <div className="mb-3">
           <input
             type="text"
             className="form-control"
@@ -52,7 +68,7 @@ export default function ClientsRegister() {
           />
         </div>
 
-        <div class="mb-3">
+        <div className="mb-3">
           <input
             type="text"
             className="form-control"
@@ -63,7 +79,7 @@ export default function ClientsRegister() {
           />
         </div>
 
-        <div class="mb-3">
+        <div className="mb-3">
           <input
             className="form-control"
             type="number"
@@ -74,7 +90,7 @@ export default function ClientsRegister() {
           />
         </div>
 
-        <div class="mb-3">
+        <div className="mb-3">
           <input
             className="form-control"
             type="number"
@@ -85,7 +101,7 @@ export default function ClientsRegister() {
           />
         </div>
 
-        <div class="mb-3">
+        <div className="mb-3">
           <textarea
             className="form-control"
             type="text"
@@ -97,7 +113,9 @@ export default function ClientsRegister() {
         </div>
 
         <div className="button-container">
-          <button className="btn btn-success new">Registrar</button>
+          <button className="btn btn-success new">
+            Registrar
+          </button>
         </div>
       </form>
     </div>
