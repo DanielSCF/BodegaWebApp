@@ -1,5 +1,34 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
 main {
   margin: 0 auto;
   width: 70%;
+  padding: 30px;
+}
+
+.title{
+  text-align: center;
+  padding-top: 20px;
+  font-size: 50px;
+}
+
+.button-container{
+  margin: 30px auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new{
+  width: 300px;
+}
+
+.form{
+  margin: 0 auto;
+  width: 50%;
   padding: 30px;
 }

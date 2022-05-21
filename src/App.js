@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React from "react";
 import "./styles.css";
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/LoginPage";
@@ -14,7 +15,6 @@ import ClientOrdersPage from "./pages/ClientOrdersPage";
 import CompanyOrdersPage from "./pages/CompanyOrdersPage";
 import AppLayout from "./pages/AppLayout";
 
-import ClientsPage from "./pages/ClientsPage";
 import ClientsTable from "./components/Clients/ClientsTable";
 import ClientsRegister from "./components/Clients/ClientsRegister";
 import ClientsEdit from "./components/Clients/ClientsEdit";
@@ -33,7 +33,6 @@ export default function App() {
 
         <Route element={<AppLayout />}>
           <Route path="/home" element={<HomePage />} />
-
           <Route path="/productos" element={<ProductsPage />} />
           <Route path="/categorias" element={<CategoriesPage />} />
           <Route path="/lotes" element={<BatchesPage />} />
@@ -41,7 +40,7 @@ export default function App() {
           <Route path="/proveedores" element={<SuppliersPage />} />
           <Route path="/usuarios" element={<UsersPage />} />
           
-          <Route path="/clientes" element={<ClientsPage />}>
+          <Route path="/clientes">
             <Route index element={<ClientsTable/>}/>
             <Route path="nuevo" element={<ClientsRegister/>}/>
             <Route path="editar/:id" element={<ClientsEdit />}/>
