@@ -18,6 +18,13 @@ export default function ClientsTable() {
     navigateRegister("/clientes/nuevo");
   }
 
+  function deleteData() {
+    axios
+      .delete("http://localhost:8070/cliente")
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  }
+
   return (
     <>
       <h1 className="title">Clientes</h1>
@@ -45,7 +52,7 @@ export default function ClientsTable() {
           </tr>
         </thead>
         <tbody>
-          {clientes.map(cliente => {
+          {clientes.map((cliente) => {
             return (
               <tr key={cliente.clienteID}>
                 <td>{cliente.clienteID}</td>
