@@ -11,6 +11,7 @@ import Batches from './components/Products/Batches';
 import Brands from './components/Products/Brands';
 import Categories from './components/Products/Categories';
 
+import UsersTable from './components/Users/UsersTable';
 import UserAccess from './components/Users/UserAccess';
 
 import SuppliersTable from "./components/Suppliers/SuppliersTable";
@@ -50,7 +51,7 @@ export default function App() {
           </Route>
 
           <Route path="/usuarios">
-
+            <Route index element={<UsersTable/>} />
 
             <Route path="tipoacceso" element={<UserAccess />} />
           </Route>
