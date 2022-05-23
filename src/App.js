@@ -12,7 +12,7 @@ import BrandsTable from './components/Products/Brands/BrandsTable';
 import CategoriesTable from './components/Products/Categories/CategoriesTable';
 
 import UsersTable from './components/Users/UsersTable';
-import UserAccess from './components/Users/UserAccess';
+import UserAccessTable from './components/Users/UserAccess/UserAccessTable';
 
 import SuppliersTable from "./components/Suppliers/SuppliersTable";
 import SuppliersRegister from "./components/Suppliers/SuppliersRegister";
@@ -53,7 +53,7 @@ export default function App() {
           <Route path="/usuarios">
             <Route index element={<UsersTable/>} />
 
-            <Route path="tipoacceso" element={<UserAccess />} />
+            <Route path="tipoacceso" element={<UserAccessTable />} />
           </Route>
 
           <Route path="/clientes">

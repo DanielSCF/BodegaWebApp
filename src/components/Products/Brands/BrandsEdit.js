@@ -1,21 +1,19 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React from "react";
 
-export default function BrandsRegister() {
+export default function BrandsEdit(props) {
   const [formData, setFormData] = useState({
+    marcaID: "",
     nombre: "",
-    estado: "ACTIVO"
+    estado: ""
   });
 
   function saveData() {
     axios
-      .post("http://localhost:8070/marca", {
+      .put("http://localhost:8070/marca", {
         ...formData,
       })
       .then(({ data }) => console.log(data))
       .catch(({ error }) => console.log(error));
-    handleClick();
   }
 
   function handleChange(event) {
@@ -25,12 +23,6 @@ export default function BrandsRegister() {
         [event.target.name]: event.target.value,
       };
     });
-  }
-
-  const navigateRegister = useNavigate();
-
-  function handleClick() {
-    navigateRegister("/productos/marcas");
   }
 
   return (
@@ -48,6 +40,23 @@ export default function BrandsRegister() {
             value={formData.nombre}
           />
         </div>
+
+        {/* 
+            <select
+              className="form-select"
+              aria-label="Default select example"
+              value={formData.estado}
+              onChange={handleChange}
+              name="estado"
+            >
+              <option value="" disabled>
+                Seleccionar estado
+              </option>
+              <option value="ACTIVO">Activo</option>
+              <option value="INACTIVO">Inactivo</option>
+            </select>
+            */}
+
         <div className="button-container">
           <button className="btn btn-success new" onClick={saveData}>
             Registrar
