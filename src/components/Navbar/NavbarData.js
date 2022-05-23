@@ -43,12 +43,6 @@ export const NavbarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Tipos de acceso',
-    path: '/tipoacceso',
-    icon: <AiIcons.AiOutlineLock />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Pedidos de cliente',
     path: '/pedidos',
     icon: <FaIcons.FaEnvelopeOpenText />,

@@ -2,24 +2,25 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function ClientsRegister() {
+export default function SuppliersRegister() {
   const [formData, setFormData] = useState({
     nombre: "",
-    apellidos: "",
-    dni: "",
+    razon_social: "",
+    correo: "",
     telefono: "",
-    direccion: "",
+    distrito: "",
+    direccion: ""
   });
 
   function saveData() {
     axios
-      .post("http://localhost:8070/cliente", {
-        ...formData   
+      .post("http://localhost:8070/proveedor", {
+        ...formData,
       })
       .then(({ data }) => console.log(data))
       .catch(({ error }) => console.log(error));
 
-    handleClick()
+    handleClick();
   }
 
   function handleChange(event) {
@@ -34,12 +35,12 @@ export default function ClientsRegister() {
   const navigateTable = useNavigate();
 
   function handleClick() {
-    navigateTable("/clientes");
+    navigateTable("/proveedores");
   }
 
   return (
     <div className="form">
-      <h1 className="title">Registrar cliente</h1>
+      <h1 className="title">Registrar proveedor</h1>
 
       <div className="button-container">
         <button
@@ -67,21 +68,21 @@ export default function ClientsRegister() {
           <input
             type="text"
             className="form-control"
-            placeholder="Apellidos"
+            placeholder="Razón social"
             onChange={handleChange}
-            name="apellidos"
-            value={formData.apellidos}
+            name="razon_social"
+            value={formData.razon_social}
           />
         </div>
 
         <div className="mb-3">
           <input
             className="form-control"
-            type="number"
-            placeholder="DNI"
+            type="email"
+            placeholder="Correo"
             onChange={handleChange}
-            name="dni"
-            value={formData.dni}
+            name="correo"
+            value={formData.correo}
           />
         </div>
 
@@ -93,6 +94,17 @@ export default function ClientsRegister() {
             onChange={handleChange}
             name="telefono"
             value={formData.telefono}
+          />
+        </div>
+
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Distrito"
+            onChange={handleChange}
+            name="distrito"
+            value={formData.distrito}
           />
         </div>
 

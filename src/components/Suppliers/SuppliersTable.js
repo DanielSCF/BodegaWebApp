@@ -2,32 +2,32 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function WorkersTable() {
-  const [trabajadores, setTrabajador] = useState([]);
+export default function SuppliersTable() {
+  const [proveedores, setProveedores] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8070/trabajador")
-      .then(({ data }) => setTrabajador(data))
+      .get("http://localhost:8070/proveedor")
+      .then(({ data }) => setProveedores(data))
       .catch(({ error }) => console.log(error));
   }, []);
 
   const navigateRegister = useNavigate();
 
   function handleClick() {
-    navigateRegister("/trabajadores/nuevo");
+    navigateRegister("/proveedores/nuevo");
   }
 
   function deleteData() {
     axios
-      .delete("http://localhost:8070/trabajador")
+      .delete("http://localhost:8070/proveedor")
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
   }
 
   return (
     <>
-      <h1 className="title">Trabajadores</h1>
+      <h1 className="title">Proveedores</h1>
 
       <div className="button-container">
         <button
@@ -35,7 +35,7 @@ export default function WorkersTable() {
           type="button"
           className="btn btn-dark new"
         >
-          Registrar trabajador
+          Registrar proveedor
         </button>
       </div>
 
@@ -44,25 +44,25 @@ export default function WorkersTable() {
           <tr>
             <th>ID</th>
             <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>DNI</th>
+            <th>Razón social</th>
+            <th>Correo</th>
             <th>Teléfono</th>
+            <th>Distrito</th>
             <th>Dirección</th>
-            <th>Cargo</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          {trabajadores.map((trabajador) => {
+          {proveedores.map((proveedor) => {
             return (
-              <tr key={trabajador.trabajadorID}>
-                <td>{trabajador.trabajadorID}</td>
-                <td>{trabajador.nombre}</td>
-                <td>{trabajador.apellidos}</td>
-                <td>{trabajador.dni}</td>
-                <td>{trabajador.telefono}</td>
-                <td>{trabajador.direccion}</td>
-                <td>{trabajador.cargo}</td>
+              <tr key={proveedor.proveedorID}>
+                <td>{proveedor.proveedorID}</td>
+                <td>{proveedor.nombre}</td>
+                <td>{proveedor.razon_social}</td>
+                <td>{proveedor.correo}</td>
+                <td>{proveedor.telefono}</td>
+                <td>{proveedor.distrito}</td>
+                <td>{proveedor.direccion}</td>
                 <td>
                   <button className="btn btn-warning">Editar</button>
                   <button className="btn btn-danger">Eliminar</button>
