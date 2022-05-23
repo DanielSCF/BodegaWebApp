@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
-import "./styles.css";
+import "./styles/styles.css";
 import AppLayout from "./pages/AppLayout";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 import ProductsTable from './components/Products/ProductsTable';
-import Batches from './components/Products/Batches';
-import Brands from './components/Products/Brands';
-import Categories from './components/Products/Categories';
+import BatchesTable from './components/Products/Batches/BatchesTable';
+import BrandsTable from './components/Products/Brands/BrandsTable';
+import CategoriesTable from './components/Products/Categories/CategoriesTable';
 
 import UsersTable from './components/Users/UsersTable';
 import UserAccess from './components/Users/UserAccess';
@@ -39,9 +39,9 @@ export default function App() {
           <Route path="/productos">
             <Route index element={<ProductsTable />}/>
 
-            <Route path="categorias" element={<Categories />} />
-            <Route path="lotes" element={<Batches />} />
-            <Route path="marcas" element={<Brands />} />
+            <Route path="categorias" element={<CategoriesTable />} />
+            <Route path="lotes" element={<BatchesTable />} />
+            <Route path="marcas" element={<BrandsTable />} />
           </Route>
 
           <Route path="/proveedores">
