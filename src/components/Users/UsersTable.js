@@ -62,8 +62,8 @@ export default function UsersTable() {
                 <td>{usuario.clave}</td>
                 <td>{usuario.estado}</td>
                 <td>{usuario.tipoAcceso.nombre}</td>
-                <td>{usuario.cliente == null ? "---": `${usuario.cliente.nombre} ${usuario.cliente.apellidos}`}</td>
-                <td>{usuario.trabajador == null ? "---": `${usuario.trabajador.nombre} ${usuario.trabajador.apellidos}`}</td>
+                <td>{usuario.cliente.nombre === null ? "---": `${usuario.cliente.nombre} ${usuario.cliente.apellidos}`}</td>
+                <td>{usuario.trabajador === null ? "---": `${usuario.trabajador.nombre} ${usuario.trabajador.apellidos}`}</td>
                 <td>
                   <button className="btn btn-warning">Editar</button>
                   <button className="btn btn-danger">Eliminar</button>

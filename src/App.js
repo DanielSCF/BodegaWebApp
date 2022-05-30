@@ -28,6 +28,12 @@ import WorkersRegister from "./components/Workers/WorkersRegister";
 import WorkersEdit from "./components/Workers/WorkersEdit";
 import ProductsRegister from "./components/Products/ProductsRegister";
 
+import SalesTable from "./components/Sales/SalesTable";
+import SaleRegisterList from "./components/CreateSaleList/SaleRegisterList"
+
+import OrdersTable from "./components/Orders/OrdersTable";
+import OrderRegisterList from "./components/CreateOrderList/OrderRegisterList";
+
 
 export default function App() {
   return (
@@ -73,8 +79,15 @@ export default function App() {
             <Route path="editar/:id" element={<WorkersEdit />} />
           </Route>
 
-          <Route path="/pedidos" />
-          <Route path="/ordenes" />
+          <Route path="/pedidos">
+            <Route index element={<SalesTable />} />
+            <Route path="generarventa" element={<SaleRegisterList />} />
+          </Route>
+
+          <Route path="/ordenes">
+            <Route index element={<OrdersTable />} />
+            <Route path="generarlista" element={<OrderRegisterList />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,19 @@
+.flexcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+
+
+}
+
+main {
+  margin: 0 auto;
+  width: 90%;
+  padding: 30px;
+}
+
+/* input {
+  display: inline-block;
+  align-items: center;
+} */
