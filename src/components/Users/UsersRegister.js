@@ -16,7 +16,7 @@ export default function UsersRegister() {
 
   const [tiposAcceso, setTiposAcceso] = useState([]);
   const [clientes, setClientes] = useState([]);
-  const [trabajador, setTrabajador] = useState([]);
+  const [trabajadores, setTrabajadores] = useState([]);
 
   function saveData() {
     axios
@@ -53,7 +53,7 @@ export default function UsersRegister() {
     useEffect(() => {
       axios
         .get("http://localhost:8070/trabajador")
-        .then(({ data }) => setTrabajador(data))
+        .then(({ data }) => setTrabajadores(data))
         .catch(({ error }) => console.log(error));
     }, []);
   };
@@ -176,7 +176,7 @@ export default function UsersRegister() {
             name="trabajador"
           >
             <option value="">Trabajador</option>
-            {trabajador.map((trabajador) => {
+            {trabajadores.map((trabajador) => {
               return (
                 <option
                   key={trabajador.trabajadorID}

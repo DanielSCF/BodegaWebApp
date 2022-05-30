@@ -6,11 +6,6 @@ import BrandsEdit from "./BrandsEdit";
 
 export default function Brands() {
   const [marcas, setMarcas] = useState([]);
-  const [formType, setFormType] = useState([
-    {
-      tipo: "REGISTRAR",
-    },
-  ]);
 
   console.log(marcas);
 
@@ -42,8 +37,7 @@ export default function Brands() {
       </div>
 
       <div className="form-table">
-
-        
+        <BrandsRegister />
 
         <div className="small-table">
           <table className="table">
@@ -63,14 +57,7 @@ export default function Brands() {
                     <td>{marca.nombre}</td>
                     <td>{marca.estado}</td>
                     <td>
-                      <button
-                        className="btn btn-warning"
-                        onClick={() => {
-                          setFormType({ tipo: "REGISTRAR" });
-                        }}
-                      >
-                        Editar
-                      </button>
+                      <button className="btn btn-warning">Editar</button>
                       <button className="btn btn-danger">Eliminar</button>
                     </td>
                   </tr>

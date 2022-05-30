@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import BatchesRegister from "./BatchesRegister";
 
 export default function Batches() {
   const [lotes, setLotes] = useState([]);
@@ -32,31 +33,36 @@ export default function Batches() {
         </button>
       </div>
 
-      <table className="table">
-        <thead className="table-dark">
-          <tr>
-            <th>ID</th>
-            <th>Fecha de ingreso</th>
-            <th>Fecha de vencimiento</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {lotes.map((lote) => {
-            return (
-              <tr key={lote.loteID}>
-                <td>{lote.loteID}</td>
-                <td>{lote.fingreso}</td>
-                <td>{lote.fvencimiento}</td>
-                <td>
-                  <button className="btn btn-warning">Editar</button>
-                  <button className="btn btn-danger">Eliminar</button>
-                </td>
+      <div className="form-table">
+        <BatchesRegister/>
+        <div className="small-table">
+          <table className="table">
+            <thead className="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Fecha de ingreso</th>
+                <th>Fecha de vencimiento</th>
+                <th>Acciones</th>
               </tr>
-            );
-          })}
-        </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {lotes.map((lote) => {
+                return (
+                  <tr key={lote.loteID}>
+                    <td>{lote.loteID}</td>
+                    <td>{lote.fingreso}</td>
+                    <td>{lote.fvencimiento}</td>
+                    <td>
+                      <button className="btn btn-warning">Editar</button>
+                      <button className="btn btn-danger">Eliminar</button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </>
-  )
+  );
 }

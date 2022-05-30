@@ -8,8 +8,6 @@ export default function BrandsRegister() {
     estado: "ACTIVO"
   });
 
-  console.log(formData);
-
   function saveData() {
     axios
       .post("http://localhost:8070/marca", {
@@ -38,8 +36,6 @@ export default function BrandsRegister() {
   return (
     <div className="form small-form">
       <h1 className="small-title">Registrar marca</h1>
-
-      <BrandsRegister/>
 
       <form>
         <div className="mb-3">

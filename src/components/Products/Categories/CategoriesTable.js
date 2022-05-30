@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import CategoriesRegister from "./CategoriesRegister";
 
 export default function Categories() {
   const [categorias, setCategorias] = useState([]);
@@ -32,31 +33,38 @@ export default function Categories() {
         </button>
       </div>
 
-      <table className="table">
-        <thead className="table-dark">
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {categorias.map((categoria) => {
-            return (
-              <tr key={categoria.categoriaID}>
-                <td>{categoria.categoriaID}</td>
-                <td>{categoria.nombre}</td>
-                <td>{categoria.estado}</td>
-                <td>
-                  <button className="btn btn-warning">Editar</button>
-                  <button className="btn btn-danger">Eliminar</button>
-                </td>
+      <div className="form-table">
+
+        <CategoriesRegister/>
+
+        <div className="small-table">
+          <table className="table">
+            <thead className="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+                <th>Acciones</th>
               </tr>
-            );
-          })}
-        </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {categorias.map((categoria) => {
+                return (
+                  <tr key={categoria.categoriaID}>
+                    <td>{categoria.categoriaID}</td>
+                    <td>{categoria.nombre}</td>
+                    <td>{categoria.estado}</td>
+                    <td>
+                      <button className="btn btn-warning">Editar</button>
+                      <button className="btn btn-danger">Eliminar</button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </>
-  )
+  );
 }
