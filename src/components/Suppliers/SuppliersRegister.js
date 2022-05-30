@@ -8,8 +8,10 @@ export default function SuppliersRegister() {
     razon_social: "",
     correo: "",
     telefono: "",
+    nombre_contacto: "",
+    departamento: "",
     distrito: "",
-    direccion: ""
+    direccion: "",
   });
 
   function saveData() {
@@ -101,6 +103,28 @@ export default function SuppliersRegister() {
           <input
             type="text"
             className="form-control"
+            placeholder="Nombre del contacto"
+            onChange={handleChange}
+            name="nombre_contacto"
+            value={formData.nombre_contacto}
+          />
+        </div>
+
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Departamento"
+            onChange={handleChange}
+            name="departamento"
+            value={formData.departamento}
+          />
+        </div>
+
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
             placeholder="Distrito"
             onChange={handleChange}
             name="distrito"
@@ -116,7 +140,7 @@ export default function SuppliersRegister() {
             onChange={handleChange}
             name="direccion"
             value={formData.direccion}
-          ></textarea>
+          />
         </div>
 
         <div className="button-container">

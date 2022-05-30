@@ -47,6 +47,8 @@ export default function SuppliersTable() {
             <th>Razón social</th>
             <th>Correo</th>
             <th>Teléfono</th>
+            <th>Nombre contacto</th>
+            <th>Departamento</th>
             <th>Distrito</th>
             <th>Dirección</th>
             <th>Acciones</th>
@@ -61,6 +63,8 @@ export default function SuppliersTable() {
                 <td>{proveedor.razon_social}</td>
                 <td>{proveedor.correo}</td>
                 <td>{proveedor.telefono}</td>
+                <td>{proveedor.nombre_contacto}</td>
+                <td>{proveedor.departamento}</td>
                 <td>{proveedor.distrito}</td>
                 <td>{proveedor.direccion}</td>
                 <td>

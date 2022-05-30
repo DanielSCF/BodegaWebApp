@@ -8,6 +8,8 @@ export default function BrandsRegister() {
     estado: "ACTIVO"
   });
 
+  console.log(formData);
+
   function saveData() {
     axios
       .post("http://localhost:8070/marca", {
@@ -48,6 +50,7 @@ export default function BrandsRegister() {
             value={formData.nombre}
           />
         </div>
+
         <div className="button-container">
           <button className="btn btn-success new" onClick={saveData}>
             Registrar

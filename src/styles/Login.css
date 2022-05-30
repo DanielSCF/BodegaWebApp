@@ -88,3 +88,8 @@
 .login input[type="button"]:focus {
   border-color: #05a;
 }
+
+.error-message{
+  color:red;
+  text-align: center;
+}

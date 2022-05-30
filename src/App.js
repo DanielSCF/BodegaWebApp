@@ -25,6 +25,7 @@ import ClientsEdit from "./components/Clients/ClientsEdit";
 import WorkersTable from "./components/Workers/WorkersTable";
 import WorkersRegister from "./components/Workers/WorkersRegister";
 import WorkersEdit from "./components/Workers/WorkersEdit";
+import ProductsRegister from "./components/Products/ProductsRegister";
 
 export default function App() {
   return (
@@ -38,6 +39,7 @@ export default function App() {
 
           <Route path="/productos">
             <Route index element={<ProductsTable />}/>
+            <Route path="nuevo" element={<ProductsRegister/>}/>
 
             <Route path="categorias" element={<CategoriesTable />} />
             <Route path="lotes" element={<BatchesTable />} />
