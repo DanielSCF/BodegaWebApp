@@ -42,7 +42,6 @@ export default function Batches() {
                 <th>ID</th>
                 <th>Fecha de ingreso</th>
                 <th>Fecha de vencimiento</th>
-                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -52,10 +51,6 @@ export default function Batches() {
                     <td>{lote.loteID}</td>
                     <td>{lote.fingreso}</td>
                     <td>{lote.fvencimiento}</td>
-                    <td>
-                      <button className="btn btn-warning">Editar</button>
-                      <button className="btn btn-danger">Eliminar</button>
-                    </td>
                   </tr>
                 );
               })}

@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import OrdersDetail from './OrdersDetail';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export default function OrdersTable() {
   const [ordersTable, setOrdersTable] = useState([])
@@ -12,6 +14,34 @@ export default function OrdersTable() {
     .then(({ data }) => setOrdersTable(data))
     .catch(({ error }) => console.log(error));
   }, [])
+
+
+  function handleClickModal(orderData){
+    const MySwal = withReactContent(Swal)
+
+    MySwal.fire({
+      title: '¿Esta seguro de cambiar el estado?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cambialo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(orderData)
+        axios.put("http://localhost:8070/orden",{...orderData, estado : 'recibido'})
+        .then(({ data }) => {
+          console.log(data)
+          Swal.fire(
+            'Hecho!',
+            'Se ha cambiado el estado.',
+            'success'
+          )
+        })
+        .catch(({ error }) => console.log(error));
+      }
+    })
+  }
 
   function handleClick(id){
     let productsAssociatedId = []
@@ -80,6 +110,7 @@ export default function OrdersTable() {
                 <td>{`${orderRow.trabajador.nombre}  ${orderRow.trabajador.apellidos}`}</td>
                 <td>
                   <button className="btn btn-warning" onClick={() => {handleClick(orderRow.orden_compraID)}} >Ver Lista</button>
+                  <button className="btn btn-info" onClick={() => {handleClickModal(orderRow)}} >Cambiar Estado</button>
                 </td>
               </tr>
             )

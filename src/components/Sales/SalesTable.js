@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom';
 import SalesDetail from './SalesDetail';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export default function SalesTable() {
   const [salesTable, setSalesTable] = useState([])
@@ -12,6 +14,33 @@ export default function SalesTable() {
     .then(({ data }) => setSalesTable(data))
     .catch(({ error }) => console.log(error));
   }, [])
+
+  function handleClickModal(orderSale){
+    const MySwal = withReactContent(Swal)
+
+    MySwal.fire({
+      title: '¿Esta seguro de cambiar el estado?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, cambialo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(orderSale)
+        axios.put("http://localhost:8070/pedido",{...orderSale, estado : 'completado'})
+        .then(({ data }) => {
+          console.log(data)
+          Swal.fire(
+            'Hecho!',
+            'Se ha cambiado el estado.',
+            'success'
+          )
+        })
+        .catch(({ error }) => console.log(error));
+      }
+    })
+  }
   
   function handleClick(id){
     let productsAssociatedId = []
@@ -61,6 +90,7 @@ export default function SalesTable() {
             <th>Fecha</th>
             <th>Total</th>
             <th>Modalidad</th>
+            <th>Estado</th>
             <th>Cliente</th>
             <th>Trabajador</th>
             <th>Acciones</th>
@@ -74,10 +104,12 @@ export default function SalesTable() {
                 <td>{saleRow.fecha}</td>
                 <td>{`S/. ${saleRow.total}`}</td>
                 <td>{saleRow.modalidad}</td>
+                <td>{saleRow.estado}</td>
                 <td>{`${saleRow.cliente.nombre}  ${saleRow.cliente.apellidos}`}</td>
                 <td>{saleRow.trabajador === null ? "---": `${saleRow.trabajador.nombre} ${saleRow.trabajador.apellidos}`}</td>
                 <td>
                   <button className="btn btn-warning" onClick={() => {handleClick(saleRow.pedidoID)}} >Ver Detalle</button>
+                  <button className="btn btn-info" onClick={() => {handleClickModal(saleRow)}} >Cambiar Estado</button>
                 </td>
               </tr>
             )

@@ -116,8 +116,8 @@ export default function WorkersRegister() {
           name="cargo"
         >
           <option value="" disabled>Seleccionar cargo</option>
-          <option value="Administrador">Administrador</option>
-          <option value="Cajero">Cajero</option>
+          <option value="administrador">Administrador</option>
+          <option value="vendedor">Vendedor</option>
           <option value="Almacenero">Almacenero</option>
         </select>
 

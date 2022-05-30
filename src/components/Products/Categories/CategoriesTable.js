@@ -44,7 +44,6 @@ export default function Categories() {
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Estado</th>
-                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -54,10 +53,6 @@ export default function Categories() {
                     <td>{categoria.categoriaID}</td>
                     <td>{categoria.nombre}</td>
                     <td>{categoria.estado}</td>
-                    <td>
-                      <button className="btn btn-warning">Editar</button>
-                      <button className="btn btn-danger">Eliminar</button>
-                    </td>
                   </tr>
                 );
               })}

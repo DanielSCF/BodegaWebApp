@@ -48,7 +48,6 @@ export default function ClientsTable() {
             <th>DNI</th>
             <th>Teléfono</th>
             <th>Dirección</th>
-            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -61,10 +60,6 @@ export default function ClientsTable() {
                 <td>{cliente.dni}</td>
                 <td>{cliente.telefono}</td>
                 <td>{cliente.direccion}</td>
-                <td>
-                  <button className="btn btn-warning">Editar</button>
-                  <button className="btn btn-danger">Eliminar</button>
-                </td>
               </tr>
             );
           })}

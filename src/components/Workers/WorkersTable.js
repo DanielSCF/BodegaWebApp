@@ -49,7 +49,6 @@ export default function WorkersTable() {
             <th>Teléfono</th>
             <th>Dirección</th>
             <th>Cargo</th>
-            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -63,10 +62,6 @@ export default function WorkersTable() {
                 <td>{trabajador.telefono}</td>
                 <td>{trabajador.direccion}</td>
                 <td>{trabajador.cargo}</td>
-                <td>
-                  <button className="btn btn-warning">Editar</button>
-                  <button className="btn btn-danger">Eliminar</button>
-                </td>
               </tr>
             );
           })}

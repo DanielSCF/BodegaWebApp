@@ -6,7 +6,7 @@ export default function HomePage() {
     <>
       <header
         className="w3-display-container w3-content w3-wide"
-        style={{ maxWidth: 1600, minWidth: 500 }}
+        style={{ maxWidth: 1300, minWidth: 500 }}
         id="home"
       >
         <img

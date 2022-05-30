@@ -48,7 +48,6 @@ export default function UserAccess() {
                 <th>Nombre</th>
                 <th>Descripción</th>
                 <th>Estado</th>
-                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -59,10 +58,6 @@ export default function UserAccess() {
                     <td>{tipoacceso.nombre}</td>
                     <td>{tipoacceso.descripcion}</td>
                     <td>{tipoacceso.estado}</td>
-                    <td>
-                      <button className="btn btn-warning">Editar</button>
-                      <button className="btn btn-danger">Eliminar</button>
-                    </td>
                   </tr>
                 );
               })}

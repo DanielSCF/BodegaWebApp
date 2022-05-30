@@ -70,7 +70,6 @@ export default function ProductsTable() {
             <th>Marca</th>
             <th>Categoría</th>
             <th>Lote - Fecha de ingreso</th>
-            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -88,10 +87,6 @@ export default function ProductsTable() {
                 <td>{producto.marca.nombre}</td>
                 <td>{producto.categoria.nombre}</td>
                 <td>{producto.lote.fingreso}</td>
-                <td>
-                  <button className="btn btn-warning">Editar</button>
-                  <button className="btn btn-danger">Eliminar</button>
-                </td>
               </tr>
             );
           })}

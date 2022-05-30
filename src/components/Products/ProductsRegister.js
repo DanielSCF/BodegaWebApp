@@ -177,7 +177,7 @@ export default function ProductsRegister() {
           <select
             className="form-select"
             aria-label="Default select example"
-            value={{ marcaID: formData.marca }}
+            value={formData.marca}
             onChange={handleChange}
             name="marca"
           >
@@ -226,11 +226,11 @@ export default function ProductsRegister() {
             onChange={handleChange}
             name="lote"
           >
-            <option value="">Lote - Fecha de ingreso</option>
+            <option value="">Lote - Fecha de ingreso y vencimiento</option>
             {lotes.map((lote) => {
               return (
                 <option key={lote.loteID} value={lote.loteID}>
-                  {lote.fingreso}
+                  {lote.fingreso} - {lote.fvencimiento}
                 </option>
               );
             })}

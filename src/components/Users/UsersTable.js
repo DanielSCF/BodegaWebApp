@@ -50,7 +50,6 @@ export default function UsersTable() {
             <th>Tipo de acceso</th>
             <th>Cliente</th>
             <th>Trabajador</th>
-            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -64,10 +63,6 @@ export default function UsersTable() {
                 <td>{usuario.tipoAcceso.nombre}</td>
                 <td>{usuario.cliente.nombre === null ? "---": `${usuario.cliente.nombre} ${usuario.cliente.apellidos}`}</td>
                 <td>{usuario.trabajador === null ? "---": `${usuario.trabajador.nombre} ${usuario.trabajador.apellidos}`}</td>
-                <td>
-                  <button className="btn btn-warning">Editar</button>
-                  <button className="btn btn-danger">Eliminar</button>
-                </td>
               </tr>
             );
           })}

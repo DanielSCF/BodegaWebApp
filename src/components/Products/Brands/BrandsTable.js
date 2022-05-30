@@ -46,7 +46,6 @@ export default function Brands() {
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Estado</th>
-                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -56,10 +55,6 @@ export default function Brands() {
                     <td>{marca.marcaID}</td>
                     <td>{marca.nombre}</td>
                     <td>{marca.estado}</td>
-                    <td>
-                      <button className="btn btn-warning">Editar</button>
-                      <button className="btn btn-danger">Eliminar</button>
-                    </td>
                   </tr>
                 );
               })}

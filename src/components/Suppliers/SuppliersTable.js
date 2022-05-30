@@ -51,7 +51,6 @@ export default function SuppliersTable() {
             <th>Departamento</th>
             <th>Distrito</th>
             <th>Dirección</th>
-            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -67,10 +66,6 @@ export default function SuppliersTable() {
                 <td>{proveedor.departamento}</td>
                 <td>{proveedor.distrito}</td>
                 <td>{proveedor.direccion}</td>
-                <td>
-                  <button className="btn btn-warning">Editar</button>
-                  <button className="btn btn-danger">Eliminar</button>
-                </td>
               </tr>
             );
           })}
