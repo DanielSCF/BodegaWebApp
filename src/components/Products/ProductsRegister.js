@@ -16,7 +16,6 @@ export default function ProductsRegister() {
     lote: { loteID: "" },
   });
 
-  console.log(formData);
   const [marcas, setMarcas] = useState([]);
   const [categorias, setCategorias] = useState([]);
   const [lotes, setLotes] = useState([]);

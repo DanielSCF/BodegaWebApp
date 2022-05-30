@@ -83,17 +83,20 @@ export default function HomePage() {
           <h1>Contacto</h1>
           <br />
           <p>
-            We offer full-service catering for any event, large or small. We
-            understand your needs and we will cater the food to satisfy the
-            biggerst criteria of them all, both look and taste. Do not hesitate
-            to contact us.
+            Si deseas saber dónde encontrar nuestros productos, obtener
+            información acerca de dicho producto , o si tienes alguna
+            sugerencia, comentarios o preguntas acerca de promociones ,servicios
+            ,etc … estamos más que encantados de ayudarte .
           </p>
           <p className="w3-text-blue-grey w3-large">
-            <b>Catering Service, 42nd Living St, 43043 New York, NY</b>
+            <b>
+              Lugar de Tremoedo, 46 36628 – Vilanova de Arousa Jaén (Cajamarca)
+            </b>
           </p>
           <p>
-            You can also contact us by phone 00553123-2323 or email
-            catering@catering.com, or you can send us a message here:
+            Puedes ponerte en contacto con nosotros escribiendo un correo
+            electrónico a bodegaeduale@gmail.com o dirigirte a nuestra
+            instalación del negocio.
           </p>
         </div>
       </div>

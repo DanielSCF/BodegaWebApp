@@ -39,6 +39,8 @@ export default function BrandsRegister() {
     <div className="form small-form">
       <h1 className="small-title">Registrar marca</h1>
 
+      <BrandsRegister/>
+
       <form>
         <div className="mb-3">
           <input

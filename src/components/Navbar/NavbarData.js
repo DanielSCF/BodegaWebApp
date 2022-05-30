@@ -53,5 +53,11 @@ export const NavbarData = [
     path: '/ordenes',
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
+  },
+  {
+    title: 'Cerrar sesión',
+    path: '/',
+    icon: <AiIcons.AiOutlineLogout />,
+    cName: 'nav-text'
   }
 ];

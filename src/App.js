@@ -11,6 +11,7 @@ import BatchesTable from './components/Products/Batches/BatchesTable';
 import BrandsTable from './components/Products/Brands/BrandsTable';
 import CategoriesTable from './components/Products/Categories/CategoriesTable';
 
+import UsersRegister from "./components/Users/UsersRegister";
 import UsersTable from './components/Users/UsersTable';
 import UserAccessTable from './components/Users/UserAccess/UserAccessTable';
 
@@ -26,6 +27,7 @@ import WorkersTable from "./components/Workers/WorkersTable";
 import WorkersRegister from "./components/Workers/WorkersRegister";
 import WorkersEdit from "./components/Workers/WorkersEdit";
 import ProductsRegister from "./components/Products/ProductsRegister";
+
 
 export default function App() {
   return (
@@ -54,6 +56,7 @@ export default function App() {
 
           <Route path="/usuarios">
             <Route index element={<UsersTable/>} />
+            <Route path="nuevo" element={<UsersRegister/>} />
 
             <Route path="tipoacceso" element={<UserAccessTable />} />
           </Route>
