@@ -1,19 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/Login.css";
+import ReCAPTCHA from "react-google-recaptcha";
+import { auto } from "@popperjs/core";
 
 export default function LoginPage() {
   const [loginForm, SetLoginForm] = useState({
     nickname: "",
     clave: "",
   });
+
   const [valid, SetValid] = useState({
     data: "",
     error: "",
     status: "",
     usuario: "",
   });
+
+  const captcha = useRef(null);
+  const [captchaValido, cambiarCaptchaValido] = useState(null);
+
+  const onChange = () => {
+    if (captcha.current.getValue()) {
+      console.log("El usuario no es un robot");
+      cambiarCaptchaValido(true);
+    }
+  };
 
   const ValidarUsuario = () => {
     axios
@@ -23,12 +36,20 @@ export default function LoginPage() {
       .then((response) => SetValid(response.data))
       .catch(({ error }) => console.log(error));
 
-    if(valid.data === "Bienvenido"){
-      handleClick()
+    if (valid.data === "Bienvenido") {
+      if (captcha.current.getValue()) {
+        console.log("El usuario no es un robot");
+        cambiarCaptchaValido(true);
+        handleClick();
+      } else {
+        console.log("Por favor acepta el captcha");
+        captcha.reset();
+        cambiarCaptchaValido(false);
+      }
     }
   };
 
-  function handleChange(event) {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     SetLoginForm((prevFormData) => {
       return {
@@ -36,7 +57,7 @@ export default function LoginPage() {
         [name]: value,
       };
     });
-  }
+  };
 
   const navigateTo = useNavigate();
 
@@ -70,13 +91,24 @@ export default function LoginPage() {
               onChange={handleChange}
             />
           </p>
+          <p style={{ display: "flex", justifyContent: "center" }}>
+            <ReCAPTCHA
+              ref={captcha}
+              sitekey="6LchID4gAAAAAG6xrMe7an_Z5FixM1GvwdVeJ5vG"
+              onChange={onChange}
+            />
+          </p>
 
           {valid.data === "Login Fallido" && (
             <p id="login-error" className="error-message">
-              {" "}
-              El usuario o contraseña con incorrectos
+              Usuario o contraseña no válidos
             </p>
           )}
+
+          {captchaValido === false && (
+            <div className="error-message">Por favor acepta el captcha</div>
+          )}
+
           <p>
             <input type="button" value="Log in" onClick={ValidarUsuario} />
           </p>

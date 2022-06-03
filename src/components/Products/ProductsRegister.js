@@ -20,6 +20,9 @@ export default function ProductsRegister() {
   const [categorias, setCategorias] = useState([]);
   const [lotes, setLotes] = useState([]);
 
+  console.log(formData);
+  console.log(marcas);
+
   function saveData() {
     axios
       .post("http://localhost:8070/productos", {
@@ -66,9 +69,9 @@ export default function ProductsRegister() {
       return { categoriaID: value };
     } else if (name === "lote") {
       return { loteID: value };
-    } else if (name === "marca") {
-      return { marcaID: value };
-    } else {
+    } //else if (name === "marca") {
+      //return { marcaID: value }} 
+      else {
       return value;
     }
   }
@@ -185,7 +188,7 @@ export default function ProductsRegister() {
             {marcas.map((marca) => {
               return (
                 marca.estado === "ACTIVO" && (
-                  <option key={marca.marcaID} value={marca.marcaID}>
+                  <option key={marca.marcaID} value={JSON.stringify(marca)}>
                     {marca.nombre}
                   </option>
                 )
